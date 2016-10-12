@@ -1,4 +1,4 @@
-var replacement = '\u{1F4A9}';
+var replacement = '\uD83D\uDCA9';
 function walk(node) 
 {
 	// I stole this function from here:
@@ -46,7 +46,7 @@ function handleTextInput(node){
 	var v = node.value;
 
 	for(var i = 0, l = words.length;i<l;i++){
-		var r = new RegExp(words[i], "gi")
+		var r = new RegExp("\\b"+words[i]+"\\b", "gi");
 		v = v.replace(r, replacement);
 	}
 	
@@ -58,7 +58,7 @@ function handleText(textNode)
 	var v = textNode.nodeValue;
 
 	for(var i = 0, l = words.length;i<l;i++){
-		var r = new RegExp(words[i], "gi")
+		var r = new RegExp("\\b"+words[i]+"\\b", "gi");
 		v = v.replace(r, replacement);
 	}
 	
@@ -70,7 +70,7 @@ function handleTitle(document)
 	var v = document.title;
 
 	for(var i = 0, l = words.length;i<l;i++){
-		var r = new RegExp(words[i], "gi")
+		var r = new RegExp(words[i], "gi");
 		v = v.replace(r, replacement);
 	}
 	
@@ -95,8 +95,13 @@ function doReplacement(newWords){
 }
 doReplacement();
 
+var config = { attributes: true, childList: true, characterData: true };
+var observer = new MutationObserver(function(mutations) {
+	doReplacement();
+});
+observer.observe(document.body, config);
+
 chrome.runtime.onMessage.addListener(function(request, sender, callback) {
-	console.log(request);
 	if(request.words)
 		doReplacement(request.words);
 });

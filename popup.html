@@ -1,24 +1,71 @@
 <!doctype html>
 <html>
   <head>
+      <meta charset="UTF-8">
     <title>Set Page Color Popup</title>
     <style>
+    *{
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
     body {
       overflow: hidden;
       margin: 0px;
       padding: 0px;
       background: white;
     }
+    h4{
+        text-align: center;
+    }
+    .segment label input{
+      display: block;
+      max-width: 100%;
+    }
+    .segment > label,
+    .segment > span{
+      display:inline-block;
+      width: 80%;
+    }
+    .segment > span{
+        width: calc(20% - 4px);
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #word-list{
+        min-width: 150px;
+    }
+    #word-list > div + div{
+        margin-top: 5px;
+    }
+    .segment.add{
+        text-align: center;
+        border: 2px solid #7ecbff;
+        cursor: pointer;
+    }
+    .segment.add,
+    #replace{
+        border-radius:3px ;
+    }
+    #replace{
+        border:2px solid #a5662a;
+        background: white;
+        margin-top: 5px;
+        margin-bottom: 1px;
+        width: 100%;
+        cursor: pointer;
+    }
     </style>
     <script src="popup.js"></script>
   </head>
   <body>
-    <h4>Word to replace</h4>
+    <h4>The mighty Turdifier</h4>
     <div id="word-list">
       <div class="segment add">
         Ajouter un mot
       </div>
     </div>
-    <button id="replace">Replace</button>
+    <button id="replace">Mettre à jour</button>
   </body>
 </html>
