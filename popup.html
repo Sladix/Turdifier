@@ -22,6 +22,11 @@
       display: block;
       max-width: 100%;
     }
+    .segment{
+      opacity: 0;
+      transform:translateY(-5px);
+      animation:appear 0.3s ease forwards;
+    }
     .segment > label,
     .segment > span{
       display:inline-block;
@@ -46,7 +51,9 @@
     }
     .segment.add,
     #replace{
-        border-radius:3px ;
+        border-radius:3px;
+        line-height: 18px;
+        font-size: 13px;
     }
     #replace{
         border:2px solid #a5662a;
@@ -56,6 +63,16 @@
         width: 100%;
         cursor: pointer;
     }
+    @keyframes appear{
+      0%{
+        opacity: 0;
+        transform:translateY(-5px);
+      }
+      100%{
+        opacity: 1;
+        transform:translateY(0);
+      }
+    }
     </style>
     <script src="popup.js"></script>
   </head>
@@ -63,9 +80,9 @@
     <h4>The mighty Turdifier</h4>
     <div id="word-list">
       <div class="segment add">
-        Ajouter un mot
+        Add a word
       </div>
     </div>
-    <button id="replace">Mettre à jour</button>
+    <button id="replace">Update</button>
   </body>
 </html>
