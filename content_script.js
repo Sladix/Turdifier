@@ -5,13 +5,6 @@ function walk(node)
 	// http://is.gd/mwZp7E
 	
 	var child, next;
-	var excluded = [
-		'textarea',
-		'input',
-		'style',
-		'script',
-		'noscript'
-	];
 	// 3 == text
 	// 8 == html comments
 	switch ( node.nodeType )  
