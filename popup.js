@@ -68,7 +68,7 @@ function replace(tabId) {
          chrome.tabs.sendMessage(tabArray[0].id, {words:words});
      	}
 	);
-  //window.close();
+  window.close();
 }
 
 document.addEventListener('DOMContentLoaded', function () {

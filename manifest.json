@@ -1,10 +1,12 @@
 {
   "name": "Turdifier",
+  "short_name": "Turdifier",
   "description": "Let you select some words that will be replaced by the poo emoji on every pages",
   "version": "1.0",
   "icons": {
     "128" : "icon_128.png"
   },
+  "author": "Antoine Guillien",
   "permissions": [
     "tabs", "http://*/*", "https://*/*","storage"
   ],
