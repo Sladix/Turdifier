@@ -18,8 +18,8 @@ function getWords(){
   for (var i = 0; i < divs.length; i++) {
   	var value = divs[i].querySelector('input');
 
-  	if(value){
-		ws.push(value.value);
+  	if(value && value.value.length > 0){
+		  ws.push(value.value);
   	}
   }
   return ws;
@@ -68,7 +68,7 @@ function replace(tabId) {
          chrome.tabs.sendMessage(tabArray[0].id, {words:words});
      	}
 	);
-  //window.close();
+  window.close();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
